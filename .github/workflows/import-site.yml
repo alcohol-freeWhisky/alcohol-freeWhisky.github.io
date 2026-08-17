@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - "ziqiwei.zip"
+      - ".github/workflows/import-site.yml"
   workflow_dispatch:
 
 permissions:
@@ -30,7 +31,7 @@ jobs:
 
       - name: Replace repository contents with website
         run: |
-          rsync -a --delete --exclude='.git/' /tmp/ziqiwei-import/ziqiwei/ ./
+          rsync -a --delete --exclude='.git/' --exclude='.github/workflows/' /tmp/ziqiwei-import/ziqiwei/ ./
 
       - name: Commit imported website
         run: |
