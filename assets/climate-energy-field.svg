@@ -1,0 +1,72 @@
+<svg width="1920" height="1200" viewBox="0 0 1920 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="wash" x1="120" y1="70" x2="1740" y2="1110" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FFFFFF" stop-opacity="0"/>
+    <stop offset="0.28" stop-color="#DDF7FB" stop-opacity="0.62"/>
+    <stop offset="0.68" stop-color="#CDEFF7" stop-opacity="0.66"/>
+    <stop offset="1" stop-color="#C7DDF5" stop-opacity="0.75"/>
+  </linearGradient>
+  <linearGradient id="stream" x1="40" y1="930" x2="1840" y2="300" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#5EDCEC"/>
+    <stop offset="0.38" stop-color="#33BCE6"/>
+    <stop offset="0.72" stop-color="#3A8FD0"/>
+    <stop offset="1" stop-color="#5464BA"/>
+  </linearGradient>
+  <linearGradient id="softLine" x1="80" y1="845" x2="1740" y2="460" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#8DE7F1"/>
+    <stop offset="0.42" stop-color="#73D2EE"/>
+    <stop offset="1" stop-color="#72A9E0"/>
+  </linearGradient>
+  <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(540 610) rotate(90) scale(520)">
+    <stop stop-color="#A7F0F5" stop-opacity="0.22"/>
+    <stop offset="1" stop-color="#A7F0F5" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1590 245) rotate(90) scale(235)">
+    <stop stop-color="#9EE5F1" stop-opacity="0.22"/>
+    <stop offset="1" stop-color="#9EE5F1" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="1920" height="1200" fill="transparent"/>
+<rect width="1920" height="1200" fill="url(#wash)" opacity="0.8"/>
+<ellipse cx="540" cy="610" rx="520" ry="520" fill="url(#glowA)"/>
+<circle cx="1590" cy="245" r="235" fill="url(#glowB)"/>
+
+<g fill="none" stroke="url(#stream)" stroke-linecap="round" opacity="0.24">
+  <animateTransform attributeName="transform" type="translate" values="0 0; 8 -3; 0 0" dur="30s" repeatCount="indefinite"/>
+  <path d="M648 162C790 50 1004 46 1147 119C1274 184 1321 277 1480 268C1635 260 1767 174 1889 88" stroke-width="2.4"/>
+  <path d="M616 214C767 102 981 98 1121 164C1246 222 1297 318 1462 317C1628 315 1767 239 1906 148" stroke-width="1.9"/>
+  <path d="M585 265C742 157 954 151 1099 211C1226 264 1284 359 1450 365C1618 371 1769 305 1912 221" stroke-width="1.5"/>
+  <path d="M570 317C728 226 925 212 1077 260C1214 304 1280 399 1446 413C1608 426 1768 378 1908 305" stroke-width="1.2"/>
+</g>
+
+<g fill="none" stroke-linecap="round">
+  <animateTransform attributeName="transform" type="translate" values="0 0; -10 4; 0 0" dur="26s" repeatCount="indefinite"/>
+  <path d="M28 886C249 704 433 834 631 651C819 477 945 416 1102 480C1268 547 1377 696 1840 401" stroke="url(#stream)" stroke-width="3.3" opacity="0.27"/>
+  <path d="M16 932C244 761 451 884 656 704C842 541 958 481 1115 536C1283 590 1393 734 1856 457" stroke="url(#stream)" stroke-width="2.7" opacity="0.23"/>
+  <path d="M10 975C256 821 473 918 684 758C865 616 980 560 1130 598C1301 640 1410 778 1871 531" stroke="url(#softLine)" stroke-width="2.1" opacity="0.20"/>
+  <path d="M77 832C280 670 428 773 609 608C795 438 938 370 1097 434C1261 500 1397 630 1788 365" stroke="#7FDFF1" stroke-width="1.45" stroke-dasharray="8 14" opacity="0.19"/>
+</g>
+
+<g fill="none" stroke-linecap="round" opacity="0.21">
+  <animateTransform attributeName="transform" type="translate" values="0 0; 6 -2; 0 0" dur="22s" repeatCount="indefinite"/>
+ <path d="M742 952C788 922 823 993 869 947C914 903 956 995 1005 938C1048 888 1090 968 1135 923C1176 881 1227 907 1270 870" stroke="#2AB2E1" stroke-width="1.95"/>
+ <path d="M742 981C790 960 832 1007 877 978C922 951 964 1004 1013 971C1057 941 1099 973 1143 950C1186 930 1226 940 1272 910" stroke="#27A6A2" stroke-width="1.3"/>
+</g>
+
+<g transform="translate(168 690)" stroke="#37A8B7" fill="none" opacity="0.22" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M0 0H168L142 92H-26L0 0Z" stroke-width="2"/>
+ <path d="M42 0L22 92M84 0L70 92M126 0L118 92M-13 46H155" stroke-width="1.1"/>
+ <path d="M54 92L40 136M101 92L118 136M18 136H143" stroke-width="1.8"/>
+</g>
+
+<g transform="translate(1664 382)" stroke="#4179B9" fill="none" opacity="0.23" stroke-linecap="round">
+ <path d="M0 0V186" stroke-width="2.3"/><circle cx="0" cy="0" r="5.2" fill="#4179B9" stroke="none"/>
+ <path d="M0 0L-77-29M0 0L26-83M0 0L56 60" stroke-width="2.2"/>
+ <path d="M-41 186H41" stroke-width="1.8"/>
+</g>
+
+<g transform="translate(1515 777)" stroke="#5464BA" fill="none" opacity="0.15" stroke-width="1.45">
+ <path d="M0 168L50 0L100 168M18 98H82M13 128H87M28 71H72M36 42H64M0 168H100"/>
+ <path d="M18 98L87 128M82 98L13 128M28 71L82 98M72 71L18 98"/>
+</g>
+</svg>

@@ -1,0 +1,63 @@
+<svg width="1100" height="760" viewBox="0 0 1100 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="80" y1="80" x2="980" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B388F"/>
+      <stop offset="0.5" stop-color="#1B75BC"/>
+      <stop offset="1" stop-color="#0AA8A1"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="280" y1="120" x2="930" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22A8E0"/>
+      <stop offset="1" stop-color="#00A1DE"/>
+    </linearGradient>
+  </defs>
+  <g opacity="0.9">
+    <circle cx="755" cy="240" r="112" stroke="#1B75BC" stroke-width="1.1" opacity="0.28"/>
+    <circle cx="755" cy="240" r="88" stroke="#00A1DE" stroke-width="1" opacity="0.22"/>
+    <circle cx="755" cy="240" r="62" stroke="#0AA8A1" stroke-width="0.9" opacity="0.18"/>
+
+    <path d="M70 500C188 425 256 443 345 394C444 340 486 246 574 208C661 170 738 194 822 154C887 123 939 69 1024 72" stroke="url(#g1)" stroke-width="1.4" opacity="0.5"/>
+    <path d="M54 535C177 472 272 490 370 439C473 385 525 292 615 249C705 205 783 219 869 184C926 161 973 123 1040 126" stroke="url(#g1)" stroke-width="1.15" opacity="0.45"/>
+    <path d="M40 568C170 523 286 529 396 484C506 439 578 362 664 316C745 273 814 272 900 248C960 232 1002 201 1054 189" stroke="url(#g2)" stroke-width="1.1" opacity="0.45"/>
+    <path d="M28 600C167 574 297 571 430 529C554 490 646 430 728 389C805 349 869 340 944 327C996 318 1032 299 1070 289" stroke="#0AA8A1" stroke-width="1.05" opacity="0.42"/>
+    <path d="M30 626C171 615 319 609 464 577C596 548 698 507 776 473C854 439 913 425 978 420C1020 418 1055 411 1080 404" stroke="#22A8E0" stroke-width="0.95" stroke-dasharray="4 8" opacity="0.4"/>
+
+    <path d="M446 176L560 238L682 208L768 268L867 224" stroke="#1B75BC" stroke-width="0.85" opacity="0.38"/>
+    <path d="M560 238L610 338L716 322L824 380" stroke="#0AA8A1" stroke-width="0.85" opacity="0.34"/>
+    <circle cx="446" cy="176" r="4" fill="#2B388F" opacity="0.52"/>
+    <circle cx="560" cy="238" r="4" fill="#00A1DE" opacity="0.48"/>
+    <circle cx="682" cy="208" r="3.5" fill="#0AA8A1" opacity="0.48"/>
+    <circle cx="768" cy="268" r="4" fill="#1B75BC" opacity="0.42"/>
+    <circle cx="867" cy="224" r="3.5" fill="#22A8E0" opacity="0.42"/>
+    <circle cx="610" cy="338" r="3.5" fill="#2B388F" opacity="0.42"/>
+    <circle cx="716" cy="322" r="3" fill="#0AA8A1" opacity="0.38"/>
+    <circle cx="824" cy="380" r="3.5" fill="#00A1DE" opacity="0.38"/>
+
+    <g opacity="0.22">
+      <path d="M880 420L902 378L924 420" stroke="#1B75BC" stroke-width="1.2"/>
+      <path d="M902 378V467" stroke="#1B75BC" stroke-width="1.2"/>
+      <path d="M894 432H910" stroke="#1B75BC" stroke-width="1.1"/>
+      <path d="M920 454H980L968 430H908" stroke="#00A1DE" stroke-width="1.1"/>
+      <path d="M936 430L946 400L958 430" stroke="#00A1DE" stroke-width="1.1" opacity="0.6"/>
+    </g>
+
+    <g opacity="0.22" stroke="#0AA8A1" stroke-width="1.05">
+      <path d="M710 478C736 466 751 448 773 441C796 433 814 438 832 429C850 420 866 402 888 392"/>
+      <path d="M710 500C734 491 750 478 772 471C795 463 813 468 832 459C850 451 867 438 888 430"/>
+      <path d="M710 522C734 515 750 506 772 499C794 491 812 495 831 489C850 482 868 472 888 466"/>
+    </g>
+
+    <g opacity="0.22" fill="#1B75BC">
+      <circle cx="933" cy="520" r="2"/><circle cx="955" cy="520" r="2"/><circle cx="977" cy="520" r="2"/><circle cx="999" cy="520" r="2"/>
+      <circle cx="933" cy="542" r="2"/><circle cx="955" cy="542" r="2"/><circle cx="977" cy="542" r="2"/><circle cx="999" cy="542" r="2"/>
+      <circle cx="933" cy="564" r="2"/><circle cx="955" cy="564" r="2"/><circle cx="977" cy="564" r="2"/><circle cx="999" cy="564" r="2"/>
+    </g>
+
+    <path d="M628 628L670 593L706 612L752 570L788 592L844 536" stroke="#2B388F" stroke-width="1.25" opacity="0.32"/>
+    <circle cx="628" cy="628" r="3" fill="#2B388F" opacity="0.34"/>
+    <circle cx="670" cy="593" r="3" fill="#00A1DE" opacity="0.34"/>
+    <circle cx="706" cy="612" r="3" fill="#0AA8A1" opacity="0.34"/>
+    <circle cx="752" cy="570" r="3" fill="#1B75BC" opacity="0.34"/>
+    <circle cx="788" cy="592" r="3" fill="#22A8E0" opacity="0.34"/>
+    <circle cx="844" cy="536" r="3" fill="#2B388F" opacity="0.34"/>
+  </g>
+</svg>

@@ -1,0 +1,7 @@
+title: Ziqi Wei
+description: Personal academic website of Ziqi Wei, MIT CEE-CSE Ph.D. student.
+url: ""
+baseurl: ""
+exclude:
+  - README.md
+  - LICENSE
