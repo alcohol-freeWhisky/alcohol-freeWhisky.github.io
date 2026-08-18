@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /research.html
+Disallow: /mascot-preview.html
+Disallow: /preview/
+
+Sitemap: https://alcohol-freewhisky.github.io/sitemap.xml
