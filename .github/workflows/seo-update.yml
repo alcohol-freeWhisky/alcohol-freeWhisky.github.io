@@ -1,0 +1,148 @@
+name: Apply SEO updates
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/seo-update.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update SEO metadata
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, json
+
+          base = "https://alcohol-freewhisky.github.io"
+          pages = {
+              "index.html": {
+                  "title": "Ziqi Wei | PhD Student at MIT",
+                  "description": "Ziqi Wei is a Ph.D. student in MIT Computational Science and Engineering and Civil and Environmental Engineering, researching climate downscaling, climate-energy interactions, power-system decision-making under uncertainty, and LLM-based multi-agent negotiation.",
+                  "url": base + "/",
+              },
+              "publications.html": {
+                  "title": "Publications | Ziqi Wei, MIT",
+                  "description": "Publications and presentations by Ziqi Wei, a Ph.D. student at MIT working on climate, energy systems, uncertainty, and computational methods.",
+                  "url": base + "/publications.html",
+              },
+              "research-experiences.html": {
+                  "title": "Research Experiences | Ziqi Wei, MIT",
+                  "description": "Research experiences of Ziqi Wei across MIT, University of Michigan, Tsinghua University, Stanford University, and Cornell University in climate, energy systems, uncertainty, and multi-agent AI.",
+                  "url": base + "/research-experiences.html",
+              },
+              "photography.html": {
+                  "title": "Photography | Ziqi Wei",
+                  "description": "Photography by Ziqi Wei, including landscapes, portraits, and cinematic three-frame studies.",
+                  "url": base + "/photography.html",
+              },
+          }
+
+          for filename, meta in pages.items():
+              p = Path(filename)
+              text = p.read_text(encoding="utf-8")
+              text = re.sub(r"<title>.*?</title>", f"<title>{meta['title']}</title>", text, count=1, flags=re.S)
+              desc_tag = f'<meta content="{meta["description"]}" name="description"/>'
+              if re.search(r'<meta[^>]+name="description"[^>]*/>', text):
+                  text = re.sub(r'<meta[^>]+name="description"[^>]*/>', desc_tag, text, count=1)
+              else:
+                  text = text.replace("</title>", "</title>\n" + desc_tag, 1)
+
+              old_seo_patterns = [
+                  r'\n?<meta content="index,follow,max-image-preview:large" name="robots"/>',
+                  r'\n?<link href="[^"]+" rel="canonical"/>',
+                  r'\n?<meta content="website" property="og:type"/>',
+                  r'\n?<meta content="[^"]*" property="og:title"/>',
+                  r'\n?<meta content="[^"]*" property="og:description"/>',
+                  r'\n?<meta content="[^"]*" property="og:url"/>',
+                  r'\n?<meta content="Ziqi Wei" property="og:site_name"/>',
+                  r'\n?<meta content="[^"]*" property="og:image"/>',
+                  r'\n?<meta content="summary" name="twitter:card"/>',
+                  r'\n?<meta content="[^"]*" name="twitter:title"/>',
+                  r'\n?<meta content="[^"]*" name="twitter:description"/>',
+              ]
+              for pat in old_seo_patterns:
+                  text = re.sub(pat, "", text)
+
+              seo = f'''\n<meta content="index,follow,max-image-preview:large" name="robots"/>
+          <link href="{meta['url']}" rel="canonical"/>
+          <meta content="website" property="og:type"/>
+          <meta content="{meta['title']}" property="og:title"/>
+          <meta content="{meta['description']}" property="og:description"/>
+          <meta content="{meta['url']}" property="og:url"/>
+          <meta content="Ziqi Wei" property="og:site_name"/>
+          <meta content="{base}/assets/photos/ziqi-wei-profile.jpg" property="og:image"/>
+          <meta content="summary" name="twitter:card"/>
+          <meta content="{meta['title']}" name="twitter:title"/>
+          <meta content="{meta['description']}" name="twitter:description"/>'''
+              text = text.replace(desc_tag, desc_tag + seo, 1)
+
+              if filename == "index.html":
+                  text = re.sub(r'\n?<script type="application/ld\+json">.*?</script>', "", text, flags=re.S)
+                  ld = {
+                      "@context": "https://schema.org",
+                      "@type": "Person",
+                      "name": "Ziqi Wei",
+                      "url": base + "/",
+                      "image": base + "/assets/photos/ziqi-wei-profile.jpg",
+                      "email": "mailto:ziqiwei@mit.edu",
+                      "jobTitle": "Ph.D. Student",
+                      "affiliation": [
+                          {"@type": "CollegeOrUniversity", "name": "Massachusetts Institute of Technology", "url": "https://www.mit.edu/"},
+                          {"@type": "Organization", "name": "MIT Computational Science and Engineering", "url": "https://cse.mit.edu/"},
+                          {"@type": "Organization", "name": "MIT Department of Civil and Environmental Engineering", "url": "https://cee.mit.edu/"},
+                      ],
+                      "alumniOf": {"@type": "CollegeOrUniversity", "name": "Tsinghua University", "url": "https://www.tsinghua.edu.cn/en/"},
+                      "sameAs": [
+                          "https://github.com/alcohol-freeWhisky",
+                          "https://www.linkedin.com/in/ziqi-wei-mit/",
+                          "https://www.researchgate.net/profile/Ziqi-Wei-15",
+                      ],
+                      "knowsAbout": [
+                          "Climate downscaling",
+                          "Climate-energy interactions",
+                          "Power-system decision-making under uncertainty",
+                          "LLM-based multi-agent negotiation",
+                      ],
+                  }
+                  script = '\n<script type="application/ld+json">\n' + json.dumps(ld, ensure_ascii=False, indent=2) + '\n</script>'
+                  text = text.replace('<link href="assets/favicon-whisky.svg"', script + '\n<link href="assets/favicon-whisky.svg"', 1)
+
+              p.write_text(text, encoding="utf-8")
+
+          Path("robots.txt").write_text(f'''User-agent: *
+          Allow: /
+          Disallow: /research.html
+          Disallow: /mascot-preview.html
+          Disallow: /preview/
+
+          Sitemap: {base}/sitemap.xml
+          ''', encoding="utf-8")
+
+          Path("sitemap.xml").write_text(f'''<?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <url><loc>{base}/</loc><lastmod>2026-08-18</lastmod></url>
+            <url><loc>{base}/publications.html</loc><lastmod>2026-08-18</lastmod></url>
+            <url><loc>{base}/research-experiences.html</loc><lastmod>2026-08-18</lastmod></url>
+            <url><loc>{base}/photography.html</loc><lastmod>2026-08-18</lastmod></url>
+          </urlset>
+          ''', encoding="utf-8")
+          PY
+
+      - name: Commit SEO updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html publications.html research-experiences.html photography.html robots.txt sitemap.xml
+          git diff --cached --quiet && exit 0
+          git commit -m "Improve search engine metadata and indexing"
+          git push
